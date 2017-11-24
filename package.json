@@ -1,0 +1,41 @@
+{
+  "name": "tsm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TAsk management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "react-scripts test --env=jsdom"
+  },
+   "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.14",
+    "react-router-dom": "^4.1.2",
+    "axios": "^0.15.3",
+    "semantic-ui-react": "^0.75.1",
+    "react-mdl": "^1.10.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishiarya09/TSM.git"
+  },
+  "keywords": [
+    "task"
+  ],
+  "author": "Rishi arya Juturu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishiarya09/TSM/issues"
+  },
+  "homepage": "https://github.com/rishiarya09/TSM#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

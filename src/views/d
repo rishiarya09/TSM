@@ -1,0 +1,88 @@
+import '../App.css';
+import axios from 'axios';
+import React, { Component } from 'react';
+import { Dropdown, Button, Icon, Divider, Card, Table } from 'semantic-ui-react';
+import {Layout, content, Header} from 'react-mdl';
+import {BrowserRouter as Router} from 'react-router-dom';
+
+const countryOptions =  [ 
+{ key: 'sus', value: 'sus', text: 'Suspension' },
+{ key: 'fin', value: 'fin', text: 'finish' } ]
+class Home extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+                    value : '',
+                    user:'',
+                    nick:'',
+                    tasks: []
+
+                    }
+                   
+                  }
+    _onSelect(e, data){
+              this.setState({ value: data.value })
+                      }            
+  
+  render() {
+    var that = this;
+    const {value}=this.state //this variable  value is used to change the state in dropdown box after the onchange function is invoked
+    return (
+    <div>
+        <Layout>
+    <div className="rev-header">
+    <div id="ch">Revision De Tareas</div>
+    </div>
+    <content>
+    <div > <h5>consultor</h5> <Card  fluid header={that.props.user} meta={that.props.nick} /></div>
+    <br/>
+    <Divider fitted/>
+    <br/>
+    <div>
+  <h5>Controles</h5>
+      <Button>
+      Refrescar
+      </Button>
+      </div>
+    <br/>
+    <Divider fitted/>
+    <br/>
+    <Table compact>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell>Order</Table.HeaderCell>
+        <Table.HeaderCell>Teara</Table.HeaderCell>
+        <Table.HeaderCell>Description</Table.HeaderCell>
+        <Table.HeaderCell>Sub sistema</Table.HeaderCell>
+        <Table.HeaderCell>Actividad</Table.HeaderCell>
+        <Table.HeaderCell>Cliente</Table.HeaderCell>
+        <Table.HeaderCell>H.Est</Table.HeaderCell>
+        <Table.HeaderCell>Estado</Table.HeaderCell>
+        <Table.HeaderCell>Asignador</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
+{that.props.role.map(function(task){return(
+       <Table.Row>
+        <Table.Cell>{task.order}</Table.Cell>
+        <Table.Cell>{task.description}</Table.Cell>
+        <Table.Cell>{task.teara}</Table.Cell>
+        <Table.Cell>{task.subsistema}</Table.Cell>
+        <Table.Cell>{task.actividad}</Table.Cell>
+        <Table.Cell>{task.cliente}</Table.Cell>
+        <Table.Cell>{task.hest}</Table.Cell>
+        <Table.Cell><Dropdown placeholder="select the option" value={value} onChange={that._onSelect.bind(that)}  selection options={countryOptions}  /></Table.Cell>
+        <Table.Cell>{task.asignador}</Table.Cell>
+      </Table.Row>
+      )})}
+      </Table.Body>
+  </Table>
+    </content>
+    </Layout>
+    </div>
+    );
+  }
+}
+
+export default Home;
+
